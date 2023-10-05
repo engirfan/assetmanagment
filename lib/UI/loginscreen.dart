@@ -1,3 +1,4 @@
+import 'package:assetmanagment/UI/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -111,7 +112,7 @@ class _LoginState extends State<LoginFrom> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) {
-                                  return const LoginFrom();
+                                  return const HomePage();
                                 },
                               ),
                             );

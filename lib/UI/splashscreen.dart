@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(
-        const Duration(seconds: 3),
+        const Duration(seconds: 10),
         () => Navigator.pushReplacement(context,
             MaterialPageRoute(builder: (context) => const LoginFrom())));
   }
@@ -31,15 +31,22 @@ class _SplashScreenState extends State<SplashScreen> {
                   width: 173, height: 134),
             ),
           ),
-          const Align(
+          Align(
             alignment: Alignment.bottomCenter,
-            child: Text("From"),
+            child:
+                Text("From", style: Theme.of(context).textTheme.displaySmall),
           ),
-          const SizedBox(height: 60),
-          const Align(
+          const SizedBox(height: 10),
+          Align(
             alignment: Alignment.bottomCenter,
-            child: Text("Transport Authority"),
+            child: SvgPicture.asset('assets/icone/authorityLogo.svg',
+                width: 86, height: 51.4),
           ),
+          // const SizedBox(height: 60),
+          // const Align(
+          //   alignment: Alignment.bottomCenter,
+          //   child: Text("Transport Authority"),
+          // ),
           const SizedBox(height: 30)
         ],
       ),
