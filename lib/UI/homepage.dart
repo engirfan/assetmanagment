@@ -1,10 +1,15 @@
+
+import 'package:assetmanagment/UI/scanstart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
+     // double height=MediaQuery.of(context).size.height;
+       // double width=MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -22,7 +27,7 @@ class HomePage extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                alignment: Alignment.centerRight,
+                alignment: Alignment.bottomRight,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -41,29 +46,58 @@ class HomePage extends StatelessWidget {
         ),
       ),
       body: Container(
-        padding: const EdgeInsets.all(20),
+        padding:const EdgeInsets.symmetric(horizontal: 16),
         child: Column(children: [
-          const SizedBox(height: 44),
+          const SizedBox(height: 24),
           Container(
               alignment: Alignment.centerRight,
               child: Text("قائمة الوظائف",
-                  style: Theme.of(context).textTheme.displaySmall)),
+                  style: Theme.of(context).textTheme.displaySmall!.copyWith(fontWeight: FontWeight.bold))),
           const SizedBox(height: 12),
-          Container(
-            width: 325,
-            height: 280,
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.primary,
-              borderRadius: BorderRadius.circular(24),
+          InkWell(
+           onTap: () {
+               Navigator.push(
+                context,
+                 MaterialPageRoute(builder: (context) => const ScanStart()),
+               );
+             },
+            child: Container(
+              width: 339,
+              height: 320,
+              decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
+                borderRadius: BorderRadius.circular(24),
+              ),
+              child: Column(
+                children: [
+                  const SizedBox(height:72),
+                   SvgPicture.asset("assets/icone/scan.svg",width: 100,height: 100),
+                   const SizedBox(height:24),
+                   Text("ابدأ الفحص",style: Theme.of(context).textTheme.displayMedium!.copyWith(fontWeight: FontWeight.bold)),
+                    const SizedBox(height:16),
+                    Text("أطلع على قوائم الجرد المثبته لديك",style: Theme.of(context).textTheme.displaySmall),
+                ]
+                ),
             ),
           ),
+           const SizedBox(height: 7),
           Container(
-            width: 325,
-            height: 280,
+            width: 339,
+            height: 320,
             decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.primary,
+              color: const Color.fromARGB(171, 10, 10, 10),
               borderRadius: BorderRadius.circular(24),
             ),
+             child: Column(
+              children: [
+                const SizedBox(height:72),
+                 SvgPicture.asset("assets/icone/report.svg",width: 100,height: 100),
+                 const SizedBox(height:24),
+                 Text("التقارير",style: Theme.of(context).textTheme.displayMedium!.copyWith(color: Colors.white,fontWeight: FontWeight.bold)),
+                  const SizedBox(height:16),
+                  Text("أطلع على قوائم الجرد المثبته لديك",style: Theme.of(context).textTheme.displaySmall!.copyWith(color: Colors.white)),
+              ]
+              ),
           )
         ]),
       ),
