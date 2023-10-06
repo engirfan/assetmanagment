@@ -1,5 +1,6 @@
 
 
+import 'package:assetmanagment/UI/assetslist.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 
@@ -58,7 +59,7 @@ return Scaffold(
                     ),
                    const SizedBox(height: 20),
                      DropdownSearch<String>(
-    popupProps:const PopupProps.menu(
+    popupProps:const PopupProps.modalBottomSheet(
         showSelectedItems: true,
         showSearchBox: false
     ),
@@ -74,7 +75,7 @@ return Scaffold(
 ),
                     const SizedBox(height: 20),
                     DropdownSearch<String>(
-    popupProps:const PopupProps.menu(
+    popupProps:const PopupProps.modalBottomSheet(
         showSelectedItems: true,
         showSearchBox: false
         
@@ -108,7 +109,7 @@ return Scaffold(
                               context,
                               MaterialPageRoute(
                                 builder: (context) {
-                                  return const ScanStart();
+                                  return const AssetsList();
                                 },
                               ),
                             );
