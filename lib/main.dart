@@ -62,7 +62,10 @@ class MyApp extends StatelessWidget {
             ),
           ),
           scaffoldBackgroundColor: const Color(0xfff7f8f9)),
-      home: const SplashScreen(),
+      home:const Directionality(
+         textDirection: TextDirection.rtl,
+        child:  SplashScreen(),
+        ),
     );
   }
 }
